@@ -7,7 +7,8 @@ Sử dụng hàm NUM-2-3NUMS-GROUPS tách NUM thành các bộ 3 số (tính t�
 Viết hàm 3NUMS-GROUPS-2-TEXT để chuyển các bộ 3 số thành dạng text.
 Lưu ý:
 - Không đọc các số 0 ở đầu với bộ 3 đầu tiên.
-- Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị"
+- Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
+- Các biến âm đặc biệt: một - mốt, không - linh, mười - mươi, năm - lăm"
 
 (defun num-to-text (num)
        (3nums-groups-2-text (num-2-3nums-groups num)))

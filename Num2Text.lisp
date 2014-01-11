@@ -2,7 +2,7 @@
 "(num->text 1.034.567.890) -> 'một tỷ không trăm ...'"
 
 "Hướng giải:
-Sử dụng hàm NUM-2-3NUMS-GROUPS tách NUM thành các bộ 3 số (tính từ dưới lên) nối với nhau bởi đơn vị hàng ngàn, triêu, tỷ, nghìn tỷ. Viết hàm 3NUMS-GROUPS-2-TEXT để chuyển các bộ 3 số thành dạng text. Lưu ý: không đọc các số 0 ở đầu với bộ 3 đầu tiên."
+Sử dụng hàm NUM-2-3NUMS-GROUPS tách NUM thành các bộ 3 số (tính từ dưới lên) nối với nhau bởi đơn vị hàng ngàn, triệu, tỷ, nghìn tỷ. Viết hàm 3NUMS-GROUPS-2-TEXT để chuyển các bộ 3 số thành dạng text. Lưu ý: không đọc các số 0 ở đầu với bộ 3 đầu tiên."
 
 (defun num-to-text (num)
        (3nums-groups-2-text (num-2-3nums-groups num)))

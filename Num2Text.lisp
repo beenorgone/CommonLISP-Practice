@@ -23,9 +23,9 @@ Viết hàm 3NUMS-GROUPS-2-TEXT để chuyển các bộ 3 số thành dạng te
 (defun rest-3nums-groups-2-text (nums)
        (cond ((zerop (length nums)) nil)
 	     (t (append (3nums-2-text (first nums))
-			(list (if (zerop (first nums))
+			(if (zerop (first nums))
 				  nil
-				  (add-unit (length nums))))
+				  (list (add-unit (length nums))))
 			(rest-3nums-groups-2-text (rest nums))))))
 
 (setf text-4-units

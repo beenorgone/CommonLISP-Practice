@@ -27,7 +27,7 @@ Lưu ý:
        (cond ((zerop (length nums)) nil)
 	     (t (append (3nums-2-text (first nums))
 			(if (zerop (first nums))
-				  nil
+				  nil ;Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
 				  (list (add-unit (length nums))))
 			(rest-3nums-groups-2-text (rest nums))))))
 
@@ -61,7 +61,7 @@ Lưu ý:
 	     (t (3nums-2-text num))))
 
 (defun 3nums-2-text (num)
-       (cond ((zerop num) nil)
+       (cond ((zerop num) nil) ;Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
 	      (t (append (read-first-num num)
 			 (read-second-num num)
 			 (read-third-num num)))))

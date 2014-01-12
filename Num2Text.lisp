@@ -2,35 +2,35 @@
 "(num->text 1.034.567.890) -> 'một tỷ không trăm ...'"
 
 "Hướng giải:
-Sử dụng hàm NUM-2-3NUMS-GROUPS tách NUM thành các bộ 3 số (tính từ dưới lên) nối với nhau bởi đơn vị hàng ngàn, triệu, tỷ, nghìn tỷ.
+Sử dụng hàm NUM->groups-of-three tách NUM thành các bộ 3 số (tính từ dưới lên) nối với nhau bởi đơn vị hàng ngàn, triệu, tỷ, nghìn tỷ.
 1234567890 -> '1 tỷ 234 triệu 567 ngàn 890 đơn vị'
-Viết hàm 3NUMS-GROUPS-2-TEXT để chuyển các bộ 3 số thành dạng text.
+Viết hàm groups-of-three->TEXT để chuyển các bộ 3 số thành dạng text.
 Lưu ý:
 - Không đọc các số 0 ở đầu với bộ 3 đầu tiên.
 - Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
 - Các biến âm đặc biệt: một - mốt, không - linh, mười - mươi, năm - lăm"
 
-(defun num-to-text (num)
-       (3nums-groups-2-text (num-2-3nums-groups num)))
+(defun num->text (num)
+       (groups-of-three->text (num->groups-of-three num)))
 
-(defun num-2-3nums-groups (num) ;(num-2-3nums-groups 1023405789) -> (1 23 405 789)
+(defun num->groups-of-three (num) ;(num->groups-of-three 1023405789) -> (1 23 405 789)
        (cond ((zerop (floor num 1000)) (list num))
-	     (t (append (num-2-3nums-groups
+	     (t (append (num->groups-of-three
 			  (floor num 1000))
 			(list (mod num 1000))))))
 
-(defun 3nums-groups-2-text (nums)
-       (append (3first-nums-2-text (first nums))
+(defun groups-of-three->text (nums)
+       (append (first-group-of-three->text (first nums))
 	       (list (add-unit (length nums)))
-	       (rest-3nums-groups-2-text (rest nums))))
+	       (rest-groups-of-three->text (rest nums))))
 
-(defun rest-3nums-groups-2-text (nums)
+(defun rest-groups-of-three->text (nums)
        (cond ((zerop (length nums)) nil)
-	     (t (append (3nums-2-text (first nums))
+	     (t (append (group-of-three->text (first nums))
 			(if (zerop (first nums))
 				  nil ;Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
 				  (list (add-unit (length nums))))
-			(rest-3nums-groups-2-text (rest nums))))))
+			(rest-groups-of-three->text (rest nums))))))
 
 (setf text-4-units
       '((5 nghìn-tỷ)
@@ -54,14 +54,14 @@ Lưu ý:
 	(8 tám (tám mươi) tám)
 	(9 chín (chín mươi) chín)))
 
-(defun 3first-nums-2-text (num)
+(defun first-group-of-three->text (num)
        (cond ((< num 10) (list (second (assoc num
 					      text-4-nums-table))))
 	     ((< num 100) (append (read-second-num num)
 				  (read-third-num num)))
-	     (t (3nums-2-text num))))
+	     (t (group-of-three->text num))))
 
-(defun 3nums-2-text (num)
+(defun group-of-three->text (num)
        (cond ((zerop num) nil) ;Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
 	      (t (append (read-first-num num)
 			 (read-second-num num)
@@ -82,3 +82,4 @@ Lưu ý:
 	     (t (list (fourth (assoc (mod num 10)
 				     text-4-nums-table))))))
 
+"Example

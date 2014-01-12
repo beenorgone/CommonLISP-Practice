@@ -99,6 +99,7 @@ Noted:
 (third-num->text 0)	;NIL (ignored)
 (third-num->text 200)	;NIL (ignored)
 (third-num->text 234)	;(TƯ)
+(third-num->text 205)	;(NĂM)
 (third-num->text 235)	;(LĂM)
 (third-num->text 911)	;(MỘT)
 (third-num->text 901)	;(MỘT)

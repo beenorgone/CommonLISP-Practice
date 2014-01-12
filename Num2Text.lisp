@@ -142,6 +142,7 @@ Noted:
 (groups-of-three->text '(901 911 200 205))	;(CHÍN TRĂM LINH MỘT TỶ CHÍN TRĂM MƯỜI MỘT TRIỆU HAI TRĂM ...)
 (groups-of-three->text '(901 000 200 205))	;(CHÍN TRĂM LINH MỘT TỶ HAI TRĂM NGÀN HAI TRĂM LINH NĂM ...)
 
+;NUM->TEXT
 
 (num->text 1234567890)	;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)
 (num->text 9000002000)	;(CHÍN TỶ KHÔNG TRĂM LINH HAI NGÀN)

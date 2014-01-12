@@ -88,7 +88,7 @@ Noted:
 (defun third-num->text (num)
        (cond ((zerop (mod num 10)) nil)
 	     ((or (equalp (mod num 100) 11)
-		  (equalp num 1)) '(một))
+		  (equalp (mod num 100) 1)) '(một))
 	     (t (list (fourth (assoc (mod num 10)
 				     num->text-table))))))
 
@@ -96,7 +96,8 @@ Noted:
 (third-num->text 0)	;NIL (ignore)
 (third-num->text 200)	;NIL (ignore)
 (third-num->text 234)	;(BỐN)
-(third-num->text 911)	;
+(third-num->text 911)	;(MỘT)
+(third-num->text 901)	;()
 
 "Examples"
 

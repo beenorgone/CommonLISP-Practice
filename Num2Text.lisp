@@ -1,10 +1,10 @@
 "(defun num->text [num] ...)"
-"(num->text 1.034.567.890) -> 'một tỷ không trăm ...'"
+"(num->text 1,034,567,890) -> 'một tỷ không trăm ...'"
 
 "Hướng giải:
-Sử dụng hàm NUM->groups-of-three tách NUM thành các bộ 3 số (tính từ dưới lên) nối với nhau bởi đơn vị hàng ngàn, triệu, tỷ, nghìn tỷ.
+Sử dụng hàm NUM->GROUPS-OF-THREE tách NUM thành các bộ 3 số (tính từ dưới lên) nối với nhau bởi đơn vị hàng ngàn, triệu, tỷ, nghìn tỷ.
 1234567890 -> '1 tỷ 234 triệu 567 ngàn 890 đơn vị'
-Viết hàm groups-of-three->TEXT để chuyển các bộ 3 số thành dạng text.
+Viết hàm GROUPS-OF-THREE->TEXT để chuyển các bộ 3 số thành dạng text.
 Lưu ý:
 - Không đọc các số 0 ở đầu với bộ 3 đầu tiên.
 - Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị

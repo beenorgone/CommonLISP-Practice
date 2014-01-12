@@ -1,14 +1,14 @@
 "(defun num->text [num] ...)"
 "(num->text 1,034,567,890) -> 'một tỷ không trăm ...'"
 
-"Hướng giải:
-Sử dụng hàm NUM->GROUPS-OF-THREE tách NUM thành các bộ 3 số (tính từ dưới lên) nối với nhau bởi đơn vị hàng ngàn, triệu, tỷ, nghìn tỷ.
-1234567890 -> '1 tỷ 234 triệu 567 ngàn 890 đơn vị'
-Viết hàm GROUPS-OF-THREE->TEXT để chuyển các bộ 3 số thành dạng text.
-Lưu ý:
-- Không đọc các số 0 ở đầu với bộ 3 đầu tiên.
-- Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
-- Các biến âm đặc biệt: một - mốt, không - linh, mười - mươi, năm - lăm"
+"Solution:
+Use function NUM->GROUPS-OF-THREE to separate NUM into groups of three (from the end of NUM) interlaced by unit of the groups (đơn-vị, ngàn, triệu, tỷ, nghìn tỷ).
+(num->groups-of-three 1234567890) -> (1 tỷ 234 triệu 567 ngàn 890 đơn vị)
+Write GROUPS-OF-THREE->TEXT, a function that takes a group of three as input and read them as text.
+Noted:
+- Ignore 0s at the head of the first group.
+- If a group of three is zero, ignore both the group and unit of the group.
+- Syllables change: một - mốt, không - linh, mười - mươi, năm - lăm"
 
 (defun num->text (num)
        (groups-of-three->text (num->groups-of-three num)))

@@ -57,40 +57,46 @@ Noted:
 (defun first-group-of-three->text (num)
        (cond ((< num 10) (list (second (assoc num
 					      num->text-table))))
-	     ((< num 100) (append (read-second-num num)
-				  (read-third-num num)))
+	     ((< num 100) (append (second-num->text num)
+				  (third-num->text num)))
 	     (t (group-of-three->text num))))
 
 (defun group-of-three->text (num)
        (cond ((zerop num) nil) ;If a group of three is zero, ignore both the group and its unit.
-	      (t (append (read-first-num num)
-			 (read-second-num num)
-			 (read-third-num num)))))
+	      (t (append (first-num->text num)
+			 (second-num->text num)
+			 (third-num->text num)))))
 
-(defun read-first-num (num)
+(defun first-num->text (num)
        (list (second (assoc (floor num 100)
 			    num->text-table)) 'trăm))
 
 ;Ex:
-(read-first-num 0)	;(KHÔNG TRĂM)
-(read-first-num 123)	;(MỘT TRĂM)
+(first-num->text 0)	;(KHÔNG TRĂM)
+(first-num->text 123)	;(MỘT TRĂM)
 
-(defun read-second-num (num)
+(defun second-num->text (num)
        (third (assoc (mod (floor num 10) 10)
 		     num->text-table)))
 
 ;Ex:
-(read-second-num 0)	;(LINH)
-(read-second-num 203)	;(LINH)
-(read-second-num 223)	;(HAI MƯƠI)
-(read-second-num 210)	;(MƯỜI)
+(second-num->text 0)	;(LINH)
+(second-num->text 203)	;(LINH)
+(second-num->text 223)	;(HAI MƯƠI)
+(second-num->text 210)	;(MƯỜI)
 
-(defun read-third-num (num)
+(defun third-num->text (num)
        (cond ((zerop (mod num 10)) nil)
 	     ((or (equalp (mod num 100) 11)
 		  (equalp num 1)) '(một))
 	     (t (list (fourth (assoc (mod num 10)
 				     num->text-table))))))
+
+;Ex:
+(third-num->text 0)	;NIL (ignore)
+(third-num->text 200)	;NIL (ignore)
+(third-num->text 234)	;(BỐN)
+(third-num->text 911)	;
 
 "Examples"
 

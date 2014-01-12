@@ -10,6 +10,7 @@ Noted:
 - If a group of three is zero all, ignore both the group and its unit.
 - If the third & the second of the group are zero, ignore both. 
 - Syllables change: một - mốt, không - linh, mười - mươi, năm - lăm"
+
 (defun num->text (num)
        (groups-of-three->text (num->groups-of-three num)))
 
@@ -21,6 +22,8 @@ Noted:
 "Test cases"
 (num->groups-of-three 0123456789) ;(123 456 789)
 (num->groups-of-three 1234001040) ;(1 234 1 40)
+
+;NUM->GROUPS-OF-THREE remove 0s in the NUM's head automatically
 
 (defun groups-of-three->text (nums)
        (append (first-group-of-three->text (first nums))

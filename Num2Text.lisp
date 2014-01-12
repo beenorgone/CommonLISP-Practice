@@ -131,8 +131,6 @@ Noted:
 
 ;FIRST-GROUP-OF-THREE->TEXT
 
-;GROUPS-OF-THREE->TEXT function decrease 0s in the head of the NUM so we don't need to test FIRST-GROUP-OF-THREE->TEXT function with 0
-
 (first-group-of-three->text 5)		;(NĂM)
 (first-group-of-three->text 11)		;(MƯỜI MỘT)
 (first-group-of-three->text 15)		;(MƯỜI LĂM)
@@ -141,6 +139,8 @@ Noted:
 
 (groups-of-three->text '(901 911 200 205))	;(CHÍN TRĂM LINH MỘT TỶ CHÍN TRĂM MƯỜI MỘT TRIỆU HAI TRĂM ...)
 (groups-of-three->text '(901 000 200 205))	;(CHÍN TRĂM LINH MỘT TỶ HAI TRĂM NGÀN HAI TRĂM LINH NĂM ...)
+
+;GROUPS-OF-THREE->TEXT function decrease 0s in the head of the NUM so we don't need to test FIRST-GROUP-OF-THREE->TEXT and GROUP-OF-THREE->TEXT functionS with 0
 
 ;NUM->TEXT
 

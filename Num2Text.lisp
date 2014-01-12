@@ -28,7 +28,7 @@ Lưu ý:
        (cond ((zerop (length nums)) nil)
 	     (t (append (group-of-three->text (first nums))
 			(if (zerop (first nums))
-				  nil ;Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
+				  nil ;If a group of three is zero, ignore both the group and unit of the group.
 				  (list (add-unit (length nums))))
 			(rest-groups-of-three->text (rest nums))))))
 
@@ -62,7 +62,7 @@ Lưu ý:
 	     (t (group-of-three->text num))))
 
 (defun group-of-three->text (num)
-       (cond ((zerop num) nil) ;Nếu bộ 3 số bằng 0 thì bỏ qua không đọc cả bộ 3 số lẫn đơn vị
+       (cond ((zerop num) nil) ;If a group of three is zero, ignore both the group and unit of the group.
 	      (t (append (read-first-num num)
 			 (read-second-num num)
 			 (read-third-num num)))))

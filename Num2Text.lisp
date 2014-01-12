@@ -47,7 +47,7 @@ Noted:
 	(1 một (mười) mốt)
 	(2 hai (hai mươi) hai)
 	(3 ba (ba mươi) ba)
-	(4 bốn (bốn mươi) bốn)
+	(4 bốn (bốn mươi) tư)
 	(5 năm (năm mươi) lăm)
 	(6 sáu (sáu mươi) sáu)
 	(7 bảy (bảy mươi) bảy)
@@ -98,6 +98,7 @@ Noted:
 (third-num->text 0)	;NIL (ignored)
 (third-num->text 200)	;NIL (ignored)
 (third-num->text 234)	;(BỐN)
+(third-num->text 235)	;(LĂM)
 (third-num->text 911)	;(MỘT)
 (third-num->text 901)	;(MỘT)
 (third-num->text 921)	;(MỐT)
@@ -111,6 +112,7 @@ Noted:
 (group-of-three->text 911)	;(CHÍN TRĂM MƯỜI MỘT)
 (group-of-three->text 921)	;(CHÍN TRĂM HAI MƯƠI MỐT)
 (group-of-three->text 200)	;(HAI TRĂM)
+(group-of-three->text 234)	;
 
 
 

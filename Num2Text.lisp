@@ -97,7 +97,8 @@ Noted:
 (third-num->text 200)	;NIL (ignore)
 (third-num->text 234)	;(BỐN)
 (third-num->text 911)	;(MỘT)
-(third-num->text 901)	;()
+(third-num->text 901)	;(MỘT)
+(third-num->text 921)	;(MỐT)
 
 "Examples"
 

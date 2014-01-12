@@ -76,8 +76,10 @@ Noted:
 (first-num->text 123)	;(MỘT TRĂM)
 
 (defun second-num->text (num)
-       (third (assoc (mod (floor num 10) 10)
-		     num->text-table)))
+       (if (zerop (mod num 100))
+	   nil
+	   (third (assoc (mod (floor num 10) 10)
+			 num->text-table))) )
 
 ;Ex:
 (second-num->text 0)	;(LINH)
@@ -103,8 +105,12 @@ Noted:
 "Examples"
 ;GROUP-OF-THREE->TEXT
 
-
-
+(group-of-three->text 0)		;NIL (ignore)
+(group-of-three->text 1)		;(KHÔNG TRĂM LINH MỘT)
+(group-of-three->text 901)	;(CHÍN TRĂM LINH MỘT)
+(group-of-three->text 911)	;(CHÍN TRĂM MƯỜI MỘT)
+(group-of-three->text 921)	;(CHÍN TRĂM HAI MƯƠI MÓT)
+(group-of-three->text 200)	;()
 
 
 

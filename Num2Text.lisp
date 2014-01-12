@@ -91,6 +91,7 @@ Noted:
        (cond ((zerop (mod num 10)) nil)
 	     ((or (equalp (mod num 100) 11)
 		  (equalp (mod num 100) 1)) '(một))
+	     ((equalp (mod num 100) 5) '(năm))
 	     (t (list (fourth (assoc (mod num 10)
 				     num->text-table))))))
 
@@ -114,7 +115,7 @@ Noted:
 (group-of-three->text 200)	;(HAI TRĂM)
 (group-of-three->text 234)	;(HAI TRĂM BA MƯƠI TƯ)
 (group-of-three->text 235)	;(HAI TRĂM BA MƯƠI LĂM)
-()
+(group-of-three->text 555)	;
 
 
 

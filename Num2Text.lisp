@@ -97,7 +97,7 @@ Noted:
 ;Ex:
 (third-num->text 0)	;NIL (ignored)
 (third-num->text 200)	;NIL (ignored)
-(third-num->text 234)	;(BỐN)
+(third-num->text 234)	;(TƯ)
 (third-num->text 235)	;(LĂM)
 (third-num->text 911)	;(MỘT)
 (third-num->text 901)	;(MỘT)
@@ -112,7 +112,9 @@ Noted:
 (group-of-three->text 911)	;(CHÍN TRĂM MƯỜI MỘT)
 (group-of-three->text 921)	;(CHÍN TRĂM HAI MƯƠI MỐT)
 (group-of-three->text 200)	;(HAI TRĂM)
-(group-of-three->text 234)	;
+(group-of-three->text 234)	;(HAI TRĂM BA MƯƠI TƯ)
+(group-of-three->text 235)	;(HAI TRĂM BA MƯƠI LĂM)
+()
 
 
 

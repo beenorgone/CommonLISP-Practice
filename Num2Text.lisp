@@ -15,8 +15,7 @@ Noted:
 
 (defun num->groups-of-three (num) ;(num->groups-of-three 1023405789) -> (1 23 405 789)
        (cond ((zerop (floor num 1000)) (list num))
-	     (t (append (num->groups-of-three
-			  (floor num 1000))
+	     (t (append (num->groups-of-three (floor num 1000))
 			(list (mod num 1000))))))
 
 (defun groups-of-three->text (nums)
@@ -28,8 +27,8 @@ Noted:
        (cond ((zerop (length nums)) nil)
 	     (t (append (group-of-three->text (first nums))
 			(if (zerop (first nums))
-				  nil ;If a group of three is zero, ignore both the group and its unit.
-				  (list (add-unit (length nums))))
+				   nil ;If a group of three is zero, ignore both the group and its unit.
+				   (list (add-unit (length nums))))
 			(rest-groups-of-three->text (rest nums))))))
 
 (setf units-table
@@ -37,7 +36,7 @@ Noted:
 	(4 tỷ)
 	(3 triệu)
 	(2 ngàn)
-	(1 đơn-vị)))
+	(1 đơn-vị))) ;
 
 (defun add-unit (a)
        (second (assoc a units-table)))
@@ -119,7 +118,9 @@ Noted:
 (group-of-three->text 555)	;(NĂM TRĂM NĂM MƯƠI LĂM)
 (group-of-three->text 205)	;(HAI TRĂM LINH NĂM)
 
+;FIRST-GROUP-OF-THREE->TEXT
 
+(first-group-of-three->text 0)
 
 (num->text 1234567890)	;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)
 (num->text 9000002000)	;(CHÍN TỶ KHÔNG TRĂM LINH HAI NGÀN)

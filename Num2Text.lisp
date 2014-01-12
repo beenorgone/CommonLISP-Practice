@@ -23,7 +23,7 @@ Noted:
 (num->groups-of-three 0123456789) ;(123 456 789)
 (num->groups-of-three 1234001040) ;(1 234 1 40)
 
-;NUM->GROUPS-OF-THREE remove 0s in the NUM's head automatically
+;NUM->GROUPS-OF-THREE function remove 0s in the NUM's head automatically
 
 (defun groups-of-three->text (nums)
        (append (first-group-of-three->text (first nums))

@@ -26,8 +26,7 @@ Noted:
 (defun rest-groups-of-three->text (nums)
        (cond ((zerop (length nums)) nil)
 	     (t (append (group-of-three->text (first nums))
-			(if (zerop (first nums))
-				   nil ;If a group of three is zero, ignore both the group and its unit.
+			(if (zerop (first nums)) nil ;If a group of three is zero, ignore both the group and its unit.
 				   (list (add-unit (length nums))))
 			(rest-groups-of-three->text (rest nums))))))
 

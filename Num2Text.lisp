@@ -123,7 +123,8 @@ Noted:
 
 ;FIRST-GROUP-OF-THREE->TEXT
 
-(first-group-of-three->text 0)		;(KHÔNG)
+;GROUPS-OF-THREE->TEXT function decrease 0s in the head of the NUM so we don't need to test FIRST-GROUP-OF-THREE->TEXT with 0
+
 (first-group-of-three->text 5)		;(NĂM)
 (first-group-of-three->text 11)		;(MƯỜI MỘT)
 (first-group-of-three->text 15)		;(MƯỜI LĂM)

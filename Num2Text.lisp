@@ -84,6 +84,7 @@ Lưu ý:
 
 "Examples"
 
-(num->text 1234567890) ;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)
-(num->text 9000002000) ;(CHÍN TỶ KHÔNG TRĂM LINH HAI NGÀN)
-(num->text 01234605)
+(num->text 1234567890)	;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)
+(num->text 9000002000)	;(CHÍN TỶ KHÔNG TRĂM LINH HAI NGÀN)
+(num->text 01234605)	;(MỘT TRIỆU HAI TRĂM BA MƯƠI BỐN NGÀN SÁU TRĂM LINH LĂM ...)
+(num->text 2011234567)	;(HAI TỶ KHÔNG TRĂM MƯỜI MỘT TRIỆU HAI TRĂM BA MƯƠI BỐN ...)

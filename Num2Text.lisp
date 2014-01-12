@@ -18,6 +18,10 @@ Noted:
 	     (t (append (num->groups-of-three (floor num 1000))
 			(list (mod num 1000))))))
 
+;Ex
+(num->groups-of-three 0123456789) ;(123 456 789)
+(num->groups-of-three 1234001040) ;(1 234 1 40)
+
 (defun groups-of-three->text (nums)
        (append (first-group-of-three->text (first nums))
 	       (list (add-unit (length nums)))

@@ -53,7 +53,7 @@ Noted:
 (add-unit 6)	;nil
 
 (setf num->text-table
-      '((0 không (linh))
+      '((0 không (linh)) ;linh v lẻ
 	(1 một (mười) mốt)
 	(2 hai (hai mươi) hai)
 	(3 ba (ba mươi) ba)

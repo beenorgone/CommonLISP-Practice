@@ -18,7 +18,7 @@ Noted:
 	     (t (append (num->groups-of-three (floor num 1000))
 			(list (mod num 1000))))))
 
-;Ex
+"Test cases"
 (num->groups-of-three 0123456789) ;(123 456 789)
 (num->groups-of-three 1234001040) ;(1 234 1 40)
 
@@ -73,7 +73,7 @@ Noted:
        (list (second (assoc (floor num 100)
 			    num->text-table)) 'trăm))
 
-;Ex:
+"Test cases"
 (first-num->text 0)	;(KHÔNG TRĂM)
 (first-num->text 123)	;(MỘT TRĂM)
 
@@ -83,7 +83,7 @@ Noted:
 	   (third (assoc (mod (floor num 10) 10)
 			 num->text-table))) )
 
-;Ex:
+"Test cases"
 (second-num->text 0)	;NIL (ignored)
 (second-num->text 203)	;(LINH)
 (second-num->text 223)	;(HAI MƯƠI)
@@ -97,7 +97,7 @@ Noted:
 	     (t (list (fourth (assoc (mod num 10)
 				     num->text-table))))))
 
-;Ex:
+"Test cases"
 (third-num->text 0)	;NIL (ignored)
 (third-num->text 200)	;NIL (ignored)
 (third-num->text 234)	;(TƯ)
@@ -107,7 +107,7 @@ Noted:
 (third-num->text 901)	;(MỘT)
 (third-num->text 921)	;(MỐT)
 
-"Examples"
+"Test cases"
 ;GROUP-OF-THREE->TEXT
 
 (group-of-three->text 0)		;NIL (ignored)
@@ -123,11 +123,12 @@ Noted:
 
 ;FIRST-GROUP-OF-THREE->TEXT
 
-;GROUPS-OF-THREE->TEXT function decrease 0s in the head of the NUM so we don't need to test FIRST-GROUP-OF-THREE->TEXT with 0
+;GROUPS-OF-THREE->TEXT function decrease 0s in the head of the NUM so we don't need to test FIRST-GROUP-OF-THREE->TEXT function with 0
 
 (first-group-of-three->text 5)		;(NĂM)
 (first-group-of-three->text 11)		;(MƯỜI MỘT)
 (first-group-of-three->text 15)		;(MƯỜI LĂM)
+
 
 (num->text 1234567890)	;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)
 (num->text 9000002000)	;(CHÍN TỶ KHÔNG TRĂM LINH HAI NGÀN)

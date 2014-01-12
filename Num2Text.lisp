@@ -32,7 +32,7 @@ Lưu ý:
 				  (list (add-unit (length nums))))
 			(rest-groups-of-three->text (rest nums))))))
 
-(setf text-4-units
+(setf units-table
       '((5 nghìn-tỷ)
 	(4 tỷ)
 	(3 triệu)
@@ -40,9 +40,9 @@ Lưu ý:
 	(1 đơn-vị)))
 
 (defun add-unit (a)
-       (second (assoc a text-4-units)))
+       (second (assoc a units-table)))
 
-(setf text-4-nums-table
+(setf num->text-table
       '((0 không (linh))
 	(1 một (mười) mốt)
 	(2 hai (hai mươi) hai)
@@ -56,7 +56,7 @@ Lưu ý:
 
 (defun first-group-of-three->text (num)
        (cond ((< num 10) (list (second (assoc num
-					      text-4-nums-table))))
+					      num->text-table))))
 	     ((< num 100) (append (read-second-num num)
 				  (read-third-num num)))
 	     (t (group-of-three->text num))))
@@ -69,17 +69,17 @@ Lưu ý:
 
 (defun read-first-num (num)
        (list (second (assoc (floor num 100)
-			    text-4-nums-table)) 'trăm))
+			    num->text-table)) 'trăm))
 
 (defun read-second-num (num)
        (third (assoc (mod (floor num 10) 10)
-		     text-4-nums-table)))
+		     num->text-table)))
 
 (defun read-third-num (num)
        (cond ((zerop (mod num 10)) nil)
 	     ((or (equalp (mod num 100) 11)
 		  (equalp num 1)) '(một))
 	     (t (list (fourth (assoc (mod num 10)
-				     text-4-nums-table))))))
+				     num->text-table))))))
 
 "Example

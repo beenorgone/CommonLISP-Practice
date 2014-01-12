@@ -109,7 +109,7 @@ Noted:
 (group-of-three->text 1)		;(KHÔNG TRĂM LINH MỘT)
 (group-of-three->text 901)	;(CHÍN TRĂM LINH MỘT)
 (group-of-three->text 911)	;(CHÍN TRĂM MƯỜI MỘT)
-(group-of-three->text 921)	;(CHÍN TRĂM HAI MƯƠI MÓT)
+(group-of-three->text 921)	;(CHÍN TRĂM HAI MƯƠI MỐT)
 (group-of-three->text 200)	;(HAI TRĂM)
 
 

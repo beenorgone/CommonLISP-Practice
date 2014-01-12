@@ -7,7 +7,7 @@ Use function NUM->GROUPS-OF-THREE to separate NUM into groups of three (from the
 Write GROUPS-OF-THREE->TEXT, a function that takes a group of three as input and read them as text.
 Noted:
 - Ignore 0s at the head of the first group.
-- If a group of three is zero, ignore both the group and unit of the group.
+- If a group of three is zero, ignore both the group and its unit.
 - Syllables change: một - mốt, không - linh, mười - mươi, năm - lăm"
 
 (defun num->text (num)
@@ -28,7 +28,7 @@ Noted:
        (cond ((zerop (length nums)) nil)
 	     (t (append (group-of-three->text (first nums))
 			(if (zerop (first nums))
-				  nil ;If a group of three is zero, ignore both the group and unit of the group.
+				  nil ;If a group of three is zero, ignore both the group and its unit.
 				  (list (add-unit (length nums))))
 			(rest-groups-of-three->text (rest nums))))))
 
@@ -62,7 +62,7 @@ Noted:
 	     (t (group-of-three->text num))))
 
 (defun group-of-three->text (num)
-       (cond ((zerop num) nil) ;If a group of three is zero, ignore both the group and unit of the group.
+       (cond ((zerop num) nil) ;If a group of three is zero, ignore both the group and its unit.
 	      (t (append (read-first-num num)
 			 (read-second-num num)
 			 (read-third-num num)))))

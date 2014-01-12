@@ -76,7 +76,7 @@ Noted:
 (first-num->text 123)	;(MỘT TRĂM)
 
 (defun second-num->text (num)
-       (if (zerop (mod num 100))
+       (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.
 	   nil
 	   (third (assoc (mod (floor num 10) 10)
 			 num->text-table))) )

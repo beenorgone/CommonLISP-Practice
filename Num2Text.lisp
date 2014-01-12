@@ -116,7 +116,8 @@ Noted:
 (group-of-three->text 200)	;(HAI TRĂM)
 (group-of-three->text 234)	;(HAI TRĂM BA MƯƠI TƯ)
 (group-of-three->text 235)	;(HAI TRĂM BA MƯƠI LĂM)
-(group-of-three->text 555)	;
+(group-of-three->text 555)	;(NĂM TRĂM NĂM MƯƠI LĂM)
+(group-of-three->text 205)	;(HAI TRĂM LINH NĂM)
 
 
 

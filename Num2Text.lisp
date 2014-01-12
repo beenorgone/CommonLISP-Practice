@@ -119,7 +119,10 @@ Noted:
 
 ;FIRST-GROUP-OF-THREE->TEXT
 
-(first-group-of-three->text 0)
+(first-group-of-three->text 0)		;(KHÔNG)
+(first-group-of-three->text 5)		;(NĂM)
+(first-group-of-three->text 11)		;(MƯỜI MỘT)
+(first-group-of-three->text 15)		;(MƯỜI LĂM)
 
 (num->text 1234567890)	;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)
 (num->text 9000002000)	;(CHÍN TỶ KHÔNG TRĂM LINH HAI NGÀN)

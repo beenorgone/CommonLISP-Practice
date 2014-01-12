@@ -2,8 +2,8 @@
 "(num->text 1,034,567,890) -> 'một tỷ không trăm ...'"
 
 "Solution:
-Use function NUM->GROUPS-OF-THREE to separate NUM into groups of three (from the end of NUM) interlaced by unit of the groups (đơn-vị, ngàn, triệu, tỷ, nghìn tỷ).
-(num->groups-of-three 1234567890) -> (1 tỷ 234 triệu 567 ngàn 890 đơn vị)
+Use function NUM->GROUPS-OF-THREE to separate NUM into groups of three (from the end of NUM). After that, write function GROUPS-OF-THREE->TEXT to convert the groups into text, interlaced by unit of the groups (đơn-vị, ngàn, triệu, tỷ, nghìn tỷ)
+(num->groups-of-three 1234567890) -> (1 234 567 890)
 Write GROUPS-OF-THREE->TEXT, a function that takes a group of three as input and read them as text.
 Noted:
 - Ignore 0s at the head of the first group.
@@ -42,11 +42,13 @@ Noted:
 	(4 tỷ)
 	(3 triệu)
 	(2 ngàn)
-	(1 đơn-vị))) ;
+	(1 đơn-vị))) ;replace 'đơn-vị' with any units of measure you want.
 
 (defun add-unit (a)
        (second (assoc a units-table)))
 
+"Test cases"
+(add-unit 1)
 (setf num->text-table
       '((0 không (linh))
 	(1 một (mười) mốt)

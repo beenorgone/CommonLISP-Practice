@@ -7,9 +7,9 @@ Use function NUM->GROUPS-OF-THREE to separate NUM into groups of three (from the
 Write GROUPS-OF-THREE->TEXT, a function that takes a group of three as input and read them as text.
 Noted:
 - Ignore 0s at the head of the first group.
-- If a group of three is zero, ignore both the group and its unit.
+- If a group of three is zero all, ignore both the group and its unit.
+- If the third & the second of the group are zero, ignore both. 
 - Syllables change: một - mốt, không - linh, mười - mươi, năm - lăm"
-
 (defun num->text (num)
        (groups-of-three->text (num->groups-of-three num)))
 
@@ -82,7 +82,7 @@ Noted:
 			 num->text-table))) )
 
 ;Ex:
-(second-num->text 0)	;(LINH)
+(second-num->text 0)	;NIL (ignored)
 (second-num->text 203)	;(LINH)
 (second-num->text 223)	;(HAI MƯƠI)
 (second-num->text 210)	;(MƯỜI)
@@ -95,8 +95,8 @@ Noted:
 				     num->text-table))))))
 
 ;Ex:
-(third-num->text 0)	;NIL (ignore)
-(third-num->text 200)	;NIL (ignore)
+(third-num->text 0)	;NIL (ignored)
+(third-num->text 200)	;NIL (ignored)
 (third-num->text 234)	;(BỐN)
 (third-num->text 911)	;(MỘT)
 (third-num->text 901)	;(MỘT)
@@ -105,12 +105,12 @@ Noted:
 "Examples"
 ;GROUP-OF-THREE->TEXT
 
-(group-of-three->text 0)		;NIL (ignore)
+(group-of-three->text 0)		;NIL (ignored)
 (group-of-three->text 1)		;(KHÔNG TRĂM LINH MỘT)
 (group-of-three->text 901)	;(CHÍN TRĂM LINH MỘT)
 (group-of-three->text 911)	;(CHÍN TRĂM MƯỜI MỘT)
 (group-of-three->text 921)	;(CHÍN TRĂM HAI MƯƠI MÓT)
-(group-of-three->text 200)	;()
+(group-of-three->text 200)	;(HAI TRĂM)
 
 
 

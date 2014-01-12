@@ -71,9 +71,19 @@ Noted:
        (list (second (assoc (floor num 100)
 			    num->text-table)) 'trăm))
 
+;Ex:
+(read-first-num 0)	;(KHÔNG TRĂM)
+(read-first-num 123)	;(MỘT TRĂM)
+
 (defun read-second-num (num)
        (third (assoc (mod (floor num 10) 10)
 		     num->text-table)))
+
+;Ex:
+(read-second-num 0)	;(LINH)
+(read-second-num 203)	;(LINH)
+(read-second-num 223)	;(HAI MƯƠI)
+(read-second-num 210)	;(MƯỜI)
 
 (defun read-third-num (num)
        (cond ((zerop (mod num 10)) nil)

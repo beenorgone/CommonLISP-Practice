@@ -86,4 +86,4 @@ Lưu ý:
 
 (num->text 1234567890) ;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)
 (num->text 9000002000) ;(CHÍN TỶ KHÔNG TRĂM LINH HAI NGÀN)
-(num->text 01234650)
+(num->text 01234605)

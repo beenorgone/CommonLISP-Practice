@@ -48,7 +48,10 @@ Noted:
        (second (assoc a units-table)))
 
 "Test cases"
-(add-unit 1)
+(add-unit 1)	;đơn-vị
+(add-unit 2)	;ngàn
+(add-unit 6)	;nil
+
 (setf num->text-table
       '((0 không (linh))
 	(1 một (mười) mốt)
@@ -133,6 +136,11 @@ Noted:
 (first-group-of-three->text 5)		;(NĂM)
 (first-group-of-three->text 11)		;(MƯỜI MỘT)
 (first-group-of-three->text 15)		;(MƯỜI LĂM)
+
+;GROUPS-OF-THREE->TEXT
+
+(groups-of-three->text '(901 911 200 205))	;(CHÍN TRĂM LINH MỘT TỶ CHÍN TRĂM MƯỜI MỘT TRIỆU HAI TRĂM ...)
+(groups-of-three->text '(901 000 200 205))	;(CHÍN TRĂM LINH MỘT TỶ HAI TRĂM NGÀN HAI TRĂM LINH NĂM ...)
 
 
 (num->text 1234567890)	;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)

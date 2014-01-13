@@ -14,8 +14,8 @@
 	     (t (append (num->groups-of-nine (floor num 1000000000))
 			(list (mod num 1000000000))))))
 
-;Test cases
-(num->groups-of-nine 1000234003) ;(1 234003)
+";Test cases
+(num->groups-of-nine 1000234003) ;(1 234003)"
 
 ;Write function GROUPS-OF-NINE->WORD to convert the groups of nine into words.
 ;Solution:
@@ -72,7 +72,7 @@
        	     					(rest-trios->word (rest nums))))
 	     (t (append (first-trio->word (first nums))
 	     		(add-unit (length nums))
-	     		(rest-trios->word (rest nums)))))
+	     		(rest-trios->word (rest nums))))))
 
 (setf unit-table
       '((3 (triệu))
@@ -82,10 +82,10 @@
 (defun add-unit (a)
        (second (assoc a unit-table)))
 
-"Test cases"
+"Test cases
 (add-unit 1)	;NIL
 (add-unit 2)	;
-(add-unit 6)	;nil
+(add-unit 6)	;nil"
 
 (defun first-trio->word (num)
        (cond ((< num 10)
@@ -113,12 +113,12 @@
 			(second-digit->word num)
 			(third-digit->word num)))))
 
-;Test Cases
+";Test Cases
 (trio->word 3)		;(KHÔNG TRĂM LINH BA)
 (trio->word 11)		;(KHÔNG TRĂM MƯỜI MỘT)
 (trio->word 910)		;(CHÍN TRĂM MƯỜI)
 (trio->word 914)		;(CHÍN TRĂM MƯỜI BỐN)
-(trio->word 924)		;(CHÍN TRĂM HAI MƯƠI TƯ)
+(trio->word 924)		;(CHÍN TRĂM HAI MƯƠI TƯ)"
 
 (setf digit->word-table
       '((0 không (linh)) ;linh v lẻ
@@ -147,10 +147,10 @@
 	   (third (assoc (mod (floor num 10) 10)
 			 digit->word-table))))
 
-;Test Cases
+";Test Cases
 (second-digit->word 3)	;(LINH)
 (second-digit->word 23)	;(HAI MƯƠI)
-(second-digit->word 910)	;(MƯỜI)
+(second-digit->word 910)	;(MƯỜI)"
 
 (defun third-digit->word (num)
        (cond ((zerop (mod num 10)) nil)
@@ -162,9 +162,9 @@
 	     (t (list (fourth (assoc (mod num 10)
 				     digit->word-table))))))
 
-;Test Cases
+";Test Cases
 (third-digit->word 3)	;(BA)
 (third-digit->word 11)	;(MỘT)
 (third-digit->word 910)	;NIL
 (third-digit->word 914)	;(BỐN)
-(third-digit->word 924)	;(TƯ)
+(third-digit->word 924)	;(TƯ)"

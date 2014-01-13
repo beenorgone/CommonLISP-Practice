@@ -42,12 +42,17 @@
 			;add unit for each group except the last
 			(rest-groups-of-nine->word (rest nums))))))
 
-;- Separate per group of nine into trios.
+;Separate per group of nine into trios.
 
 (defun num->trios (num)
        (cond ((zerop (floor num 1000)) (list num))
 	     (t (append (num->trios (floor num 1000))
 			(list (mod num 1000))))))
+
+;Convert trios into words.
+;Solution:
+;- add unit (triệu, ngàn) for each trio except special cases.
+;- Write functions FIRST-TRIO->WORD & REST-TRIOS->WORD to deal with special cases.
 
 (defun trios->word (nums)
        (if (equalp 1 (length nums))

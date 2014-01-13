@@ -78,8 +78,7 @@ Noted:
        (cond ((zerop num) nil) ;If a group of three is zero, ignore both the group and its unit.
 	      (t (append (first-num->text num)
 			 (second-num->text num)
-			 (third-num->text num)
-			 measure-unit))))
+			 (third-num->text num)))))
 
 (defun first-num->text (num)
        (list (second (assoc (floor num 100)

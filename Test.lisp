@@ -15,14 +15,32 @@
 (num->groups-of-nine 1000234003) ;(1 234003)
 
 ;Write function GROUPS-OF-NINE->WORD to convert the groups of nine into words.
-;Solution: Separate per group of nine into trios.
+;Solution:
+;- add unit (tỷ) for each group except the last.
+;- Write functions FIRST-GROUP-OF-NINE->WORD & REST-GROUPS-OF-NINE->WORD to deal with some special cases.
+;- Separate per group of nine into trios.
 
 (defun groups-of-nine->word (nums)
        (if (equalp 1 (length nums))
 	   (trios->word (num->trios (first nums)))
 	   (append (first-group-of-nine->word (first nums))
-		   '(tỷ)
+		   '(tỷ) ;add unit for first group.
 		   (rest-groups-of-nine->word (rest nums)))))
+
+(defun first-group-of-nine->word (num)
+       (cond ((< num 1000) (first-trio->word num))
+	     ((< num 1000000) (append (first-trio->word (floor num 1000))
+				      (trio->word (mod num 1000))))
+	     (t (group-of-nine->word num))))
+
+(defun rest-groups-of-nine->word (nums)
+       (cond ((equalp (length nums) 1) (group-of-nine->word (first nums)))
+	     ((zerop (first nums)) (append (rest-groups-of-nine->word (rest nums))
+					   '(tỷ)))
+	     (t (append (group-of-nine->word (first nums))
+			'(tỷ)
+			;add unit for each group except the last
+			(rest-groups-of-nine->word (rest nums))))))
 
 (defun num->trios (num)
        (cond ((zerop (floor num 1000)) (list num))
@@ -99,19 +117,8 @@
 	     (t (list (fourth (assoc (mod num 10)
 				     digit->word-table))))))
 
-(defun rest-groups-of-nine->word (nums)
-       (cond ((equalp (length nums) 1) (group-of-nine->word (first nums)))
-	     ((zerop (first nums)) (append (rest-groups-of-nine->word (rest nums))
-					   '(tỷ)))
-	     (t (append (group-of-nine->word (first nums))
-			'(tỷ)
-			(rest-groups-of-nine->word (rest nums))))))
+
 
 (defun group-of-nine->word (num)
        (trios->word (num->trios num)))
 
-(defun first-group-of-nine->word (num)
-       (cond ((< num 1000) (first-trio->word num))
-	     ((< num 1000000) (append (first-trio->word (floor num 1000))
-				      (trio->word (mod num 1000))))
-	     (t (group-of-nine->word num))))

@@ -21,7 +21,10 @@
 		   (rest-groups-of-nine->words (rest nums))
 		   )))
 
-(defun )
+(defun group-of-nine->trios (num)
+       (cond ((zerop (floor num 1000)) (list num))
+	     (t (append (group-of-nine->trios (floor num 1000))
+			(list (mod num 1000))))))
 
 (defun rest-groups-of-nine->trios (nums)
        )

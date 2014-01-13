@@ -72,7 +72,7 @@
 (setf unit-table
       '((3 triệu)
 	(2 nghìn)
-	(1 nil)))
+	(1)))
 
 (defun add-unit (a)
        (second (assoc a unit-table)))

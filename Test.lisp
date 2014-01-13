@@ -96,8 +96,10 @@
 
 (defun rest-groups-of-nine->word (nums)
        (cond ((null nums) nil)
-	     ((zerop (first nums)) (rest-groups-of-nine->word (rest nums)))
+	     ((zerop (first nums)) (append (rest-groups-of-nine->word (rest nums))
+					   '(tỷ)))
 	     (t (append (group-of-nine->word (first nums))
+			'(tỷ)
 			(rest-groups-of-nine->word (rest nums))))))
 
 (defun group-of-nine->word (num)

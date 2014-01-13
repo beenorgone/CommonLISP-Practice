@@ -108,12 +108,12 @@
 			(second-digit->word num)
 			(third-digit->word num)))))
 
-;Test Cases
+";Test Cases
 (trio->word 3)		;(KHÔNG TRĂM LINH BA)
 (trio->word 11)		;(KHÔNG TRĂM MƯỜI MỘT)
 (trio->word 910)		;(CHÍN TRĂM MƯỜI)
 (trio->word 914)		;(CHÍN TRĂM MƯỜI BỐN)
-(trio->word 924)		;(CHÍN TRĂM HAI MƯƠI TƯ)
+(trio->word 924)		;(CHÍN TRĂM HAI MƯƠI TƯ)"
 
 (setf digit->word-table
       '((0 không (linh)) ;linh v lẻ
@@ -131,10 +131,10 @@
        (list (second (assoc (floor num 100)
 			    digit->word-table)) 'trăm))
 
-;Test Cases
+";Test Cases
 (first-digit->word 3)	;(KHÔNG TRĂM)
 (first-digit->word 23)	;(KHÔNG TRĂM)
-(first-digit->word 910)	;(CHÍN TRĂM)
+(first-digit->word 910)	;(CHÍN TRĂM)"
 
 (defun second-digit->word (num)
        (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.
@@ -142,10 +142,10 @@
 	   (third (assoc (mod (floor num 10) 10)
 			 digit->word-table))))
 
-;Test Cases
+";Test Cases
 (second-digit->word 3)	;(LINH)
 (second-digit->word 23)	;(HAI MƯƠI)
-(second-digit->word 910)	;(MƯỜI)
+(second-digit->word 910)	;(MƯỜI)"
 
 (defun third-digit->word (num)
        (cond ((zerop (mod num 10)) nil)
@@ -157,9 +157,9 @@
 	     (t (list (fourth (assoc (mod num 10)
 				     digit->word-table))))))
 
-;Test Cases
+";Test Cases
 (third-digit->word 3)	;(BA)
 (third-digit->word 11)	;(MỘT)
 (third-digit->word 910)	;NIL
 (third-digit->word 914)	;(BỐN)
-(third-digit->word 924)	;(TƯ)
+(third-digit->word 924)	;(TƯ)"

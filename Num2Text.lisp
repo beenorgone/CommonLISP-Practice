@@ -2,7 +2,7 @@
 "(num->text 1,034,567,890) -> 'một tỷ không trăm ...'"
 
 "Solution:
-Use function NUM->GROUPS-OF-THREE to separate NUM into groups of three (from the end of NUM). After that, write function GROUPS-OF-THREE->TEXT to convert the groups into text, interlaced by unit of the groups (đơn-vị, ngàn, triệu, tỷ, nghìn tỷ)
+Use function NUM->GROUPS-OF-THREE to separate NUM into groups of three (from the end of NUM). After that, write function GROUPS-OF-THREE->TEXT to convert the groups into text, interlaced by unit of the groups (đơn-vị, nghìn, triệu, tỷ, nghìn tỷ)
 (num->groups-of-three 1234567890) -> (1 234 567 890)
 Write GROUPS-OF-THREE->TEXT, a function that takes a group of three as input and read them as text.
 Noted:
@@ -42,7 +42,7 @@ Noted:
       '((5 nghìn-tỷ)
 	(4 tỷ)
 	(3 triệu)
-	(2 ngàn)
+	(2 nghìn)
 	(1 nil)))
 
 (setf measure-unit '(đơn-vị)) ;replace đơn-vị with m2, m3, vnd, usd, ...
@@ -52,7 +52,7 @@ Noted:
 
 "Test cases"
 (add-unit 1)	;đơn-vị
-(add-unit 2)	;ngàn
+(add-unit 2)	;nghìn
 (add-unit 6)	;nil
 
 (setf num->text-table
@@ -141,13 +141,13 @@ Noted:
 ;GROUPS-OF-THREE->TEXT
 
 (groups-of-three->text '(901 911 200 205))	;(CHÍN TRĂM LINH MỘT TỶ CHÍN TRĂM MƯỜI MỘT TRIỆU HAI TRĂM ...)
-(groups-of-three->text '(901 000 200 205))	;(CHÍN TRĂM LINH MỘT TỶ HAI TRĂM NGÀN HAI TRĂM LINH NĂM ...)
+(groups-of-three->text '(901 000 200 205))	;(CHÍN TRĂM LINH MỘT TỶ HAI TRĂM nghìn HAI TRĂM LINH NĂM ...)
 
 ;GROUPS-OF-THREE->TEXT function decrease 0s in the head of the NUM so we don't need to test FIRST-GROUP-OF-THREE->TEXT and GROUP-OF-THREE->TEXT functionS with 0
 
 ;NUM->TEXT
 
 (num->text 1234567890)	;(MỘT TỶ HAI TRĂM BA MƯƠI BỐN TRIỆU NĂM TRĂM SÁU MƯƠI ...)
-(num->text 9000002000)	;(CHÍN TỶ KHÔNG TRĂM LINH HAI NGÀN)
-(num->text 01234605)	;(MỘT TRIỆU HAI TRĂM BA MƯƠI BỐN NGÀN SÁU TRĂM LINH LĂM ...)
+(num->text 9000002000)	;(CHÍN TỶ KHÔNG TRĂM LINH HAI nghìn)
+(num->text 01234605)	;(MỘT TRIỆU HAI TRĂM BA MƯƠI BỐN nghìn SÁU TRĂM LINH LĂM ...)
 (num->text 2011234567)	;(HAI TỶ KHÔNG TRĂM MƯỜI MỘT TRIỆU HAI TRĂM BA MƯƠI BỐN ...)

@@ -69,12 +69,12 @@
        (if (equalp 1 (length nums))
 	   (first-trio->word (first nums))
 	   (append (first-trio->word (first nums))
-		   (list (add-unit (length nums)))
+		   (add-unit (length nums))
 		   (rest-trios->word (rest nums)))))
 
 (setf unit-table
-      '((3 triệu)
-	(2 nghìn)
+      '((3 (triệu))
+	(2 (nghìn))
 	(1)))
 
 (defun add-unit (a)
@@ -97,7 +97,7 @@
 		  ;ignore (replace with nil) if the two last trios is 0.
 	      nil)
 	     (t (append (trio->word (first nums))
-			(list (add-unit (length nums)))
+			(add-unit (length nums))
 			(rest-trios->word (rest nums))))))
 
 ;Use TRIO-WORD to convert a trio into words.

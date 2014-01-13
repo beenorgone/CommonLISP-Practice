@@ -37,7 +37,7 @@
 (defun rest-groups-of-nine->word (nums)
        (cond ((equalp (length nums) 1) (if (zerop (first nums))
 					   nil
-					   (group-of-nine->word (first nums))))
+					   (last-group-of-nine->word (first nums))))
 	     ((zerop (first nums)) (append '(tỷ)
 					   (rest-groups-of-nine->word (rest nums))))
 	     (t (append (group-of-nine->word (first nums))
@@ -55,7 +55,11 @@
 ;Write function GROUP-OF-NINE->WORD to convert a group of nine into words. This function use two functions TRIOS->WORD & NUM->TRIOS.
 
 (defun group-of-nine->word (num)
-       (trios->word (num->trios num)))
+       (cond ((< num 1000) (append '(không triệu không nghìn)
+				   (trio->word num)))
+	     ((< num 1000000) (append '(không triệu)
+				      (trios->word (num->trios num))))
+	     (trios->word (num->trios num))))
 
 ;Convert trios into words with TRIOS->WORD function.
 ;Solution:

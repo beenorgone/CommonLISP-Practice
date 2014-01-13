@@ -30,8 +30,7 @@
 
 (defun first-group-of-nine->word (num)
        (cond ((< num 1000) (first-trio->word num))
-	     ((< num 1000000) (append (first-trio->word (floor num 1000))
-				      (trio->word (mod num 1000))))
+	     ((< num 1000000) (trios->word (num->trios num)))
 	     (t (group-of-nine->word num))))
 
 (defun rest-groups-of-nine->word (nums)

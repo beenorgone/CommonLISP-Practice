@@ -82,7 +82,7 @@
        (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.
 	   nil
 	   (third (assoc (mod (floor num 10) 10)
-			 num->text-table))))
+			 digit->word-table))))
 
 (defun third-digit->word (num)
        (cond ((zerop (mod num 10)) nil)

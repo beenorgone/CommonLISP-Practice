@@ -2,10 +2,15 @@
 
 ----  
 
-A draft Common LISP library for number to vietnamese conversion.  
+A draft (and stupid) Common LISP library for number to vietnamese conversion.  
 
 # Usage  
 
-    (number->word 9000000000000000000000000000000000)
-    ;; => "chín triệu tỷ tỷ tỷ đơn vị"
+    (number->word 1000000000000000000000000000000000)
+    ;; => "1 triệu tỷ tỷ tỷ đơn vị"
 
+# License  
+
+----  
+
+Copyright 

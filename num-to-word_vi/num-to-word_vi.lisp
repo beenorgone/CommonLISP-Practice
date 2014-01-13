@@ -160,3 +160,6 @@
 ;Test Cases
 (third-digit->word 3)	;(BA)
 (third-digit->word 11)	;(MỘT)
+(third-digit->word 910)	;NIL
+(third-digit->word 914)	;(BỐN)
+(third-digit->word 924)	;(TƯ)

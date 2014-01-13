@@ -42,8 +42,21 @@
 (defun first-trio->word (num)
        (cond ((< num 10)
 	      (list (second (assoc num num->word-table))))
-	     ((< num 100 (append (second-digit->word num)
-				 (third-digit->word))))))
+	     ((< num 100) (append (second-digit->word num)
+				  (third-digit->word)))
+	     (t (trio->word num))))
+
+(defun rest-trios->word (nums)
+       (cond ((and (equalp (length nums) 1)
+		   (zerop (first nums)))
+	      nil)
+	     (t (append (trio->word (first nums))
+			(list (add-unit (length nums)))
+			(rest-trios->word (rest nums))))))
+
+(defun trio->word (num)
+       (cond ((zerop num) '(không))
+	     ))
 
 (setf num->word-table
       '((0 không (linh)) ;linh v lẻ

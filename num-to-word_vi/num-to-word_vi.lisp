@@ -56,11 +56,7 @@
 ;Write function GROUP-OF-NINE->WORD to convert a group of nine into words. This function use two functions TRIOS->WORD & NUM->TRIOS.
 
 (defun group-of-nine->word (num)
-       (cond ((< num 1000) (append '(không triệu không nghìn)
-				   (trio->word num)))
-	     ((< num 1000000) (append '(không triệu)
-				      (trios->word (num->trios num))))
-	     (t (trios->word (num->trios num)))))
+	(trios->word (num->trios num)))
 
 ;Convert trios into words with TRIOS->WORD function.
 ;Solution:
@@ -68,11 +64,15 @@
 ;- Write functions FIRST-TRIO->WORD & REST-TRIOS->WORD to deal with special cases.
 
 (defun trios->word (nums)
-       (if (equalp 1 (length nums))
-	   (first-trio->word (first nums))
-	   (append (first-trio->word (first nums))
-		   (add-unit (length nums))
-		   (rest-trios->word (rest nums)))))
+       (cond ((equalp 1 (length nums)) (append '(không triệu không nghìn)
+       						(first-trio->word (first nums))))
+       	     ((equalp 2 (length nums)) (append '(không triệu)
+       	     					(first-trio->word (first nums))
+       	     					(add-unit (length nums))
+       	     					(rest-trios->word (rest nums))))
+	     (t (append (first-trio->word (first nums))
+	     		(add-unit (length nums))
+	     		(rest-trios->word (rest nums)))))
 
 (setf unit-table
       '((3 (triệu))

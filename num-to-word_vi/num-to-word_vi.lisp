@@ -15,7 +15,7 @@
 			(list (mod num 1000000000))))))
 
 ;Test cases
-(num->groups-of-nine 1000234003) ;(1 234003)
+;(num->groups-of-nine 1000234003) ;(1 234003)
 
 ;Write function GROUPS-OF-NINE->WORD to convert the groups of nine into words.
 ;Solution:
@@ -81,11 +81,6 @@
 
 (defun add-unit (a)
        (second (assoc a unit-table)))
-
-"Test cases"
-(add-unit 1)	;NIL
-(add-unit 2)	;
-(add-unit 6)	;nil
 
 (defun first-trio->word (num)
        (cond ((< num 10)

@@ -18,8 +18,7 @@
 	   (append (first-group-of-nine->word (first nums))
 		   '(tỷ)
 		   "(trios->word (groups-of-nine->trios (rest nums))"
-		   (rest-groups-of-nine->word (rest nums))
-		   )))
+		   (rest-groups-of-nine->word (rest nums)))))
 
 (defun num->trios (num)
        (cond ((zerop (floor num 1000)) (list num))
@@ -49,7 +48,8 @@
 	     (t (trio->word num))))
 
 (defun rest-trios->word (nums)
-       (cond ((and (equalp (length nums) 1)
+       (cond ((null nums) nil)
+	     ((and (equalp (length nums) 1)
 		   (zerop (first nums)))
 	      nil)
 	     (t (append (trio->word (first nums))

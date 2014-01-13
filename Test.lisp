@@ -79,8 +79,10 @@
 (defun rest-trios->word (nums)
        (cond ((or (and (equalp (length nums) 1)
 		       (zerop (first nums)))
+		  ;ignore (replace with nil) if the last trio is 0.
 		  (null nums)
-		  (and (equalp (length ))))
+		  (and (equalp (length nums) 2)
+		       (zerop (apply #'+ nums))))
 	      nil)
 	     (t (append (trio->word (first nums))
 			(list (add-unit (length nums)))

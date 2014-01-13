@@ -14,8 +14,13 @@
 	     (t (append (num->groups-of-nine (floor num 1000000000))
 			(list (mod num 1000000000))))))
 
+<<<<<<< HEAD
 ;Test cases
 ;(num->groups-of-nine 1000234003) ;(1 234003)
+=======
+";Test cases
+(num->groups-of-nine 1000234003) ;(1 234003)"
+>>>>>>> alpha130114
 
 ;Write function GROUPS-OF-NINE->WORD to convert the groups of nine into words.
 ;Solution:
@@ -56,11 +61,7 @@
 ;Write function GROUP-OF-NINE->WORD to convert a group of nine into words. This function use two functions TRIOS->WORD & NUM->TRIOS.
 
 (defun group-of-nine->word (num)
-       (cond ((< num 1000) (append '(không triệu không nghìn)
-				   (trio->word num)))
-	     ((< num 1000000) (append '(không triệu)
-				      (trios->word (num->trios num))))
-	     (t (trios->word (num->trios num)))))
+	(trios->word (num->trios num)))
 
 ;Convert trios into words with TRIOS->WORD function.
 ;Solution:
@@ -68,11 +69,15 @@
 ;- Write functions FIRST-TRIO->WORD & REST-TRIOS->WORD to deal with special cases.
 
 (defun trios->word (nums)
-       (if (equalp 1 (length nums))
-	   (first-trio->word (first nums))
-	   (append (first-trio->word (first nums))
-		   (add-unit (length nums))
-		   (rest-trios->word (rest nums)))))
+       (cond ((equalp 1 (length nums)) (append '(không triệu không nghìn)
+       						(first-trio->word (first nums))))
+       	     ((equalp 2 (length nums)) (append '(không triệu)
+       	     					(first-trio->word (first nums))
+       	     					(add-unit (length nums))
+       	     					(rest-trios->word (rest nums))))
+	     (t (append (first-trio->word (first nums))
+	     		(add-unit (length nums))
+	     		(rest-trios->word (rest nums))))))
 
 (setf unit-table
       '((3 (triệu))
@@ -82,6 +87,14 @@
 (defun add-unit (a)
        (second (assoc a unit-table)))
 
+<<<<<<< HEAD
+=======
+"Test cases
+(add-unit 1)	;NIL
+(add-unit 2)	;
+(add-unit 6)	;nil"
+
+>>>>>>> alpha130114
 (defun first-trio->word (num)
        (cond ((< num 10)
 	      (list (second (assoc num digit->word-table))))
@@ -162,4 +175,8 @@
 (third-digit->word 11)	;(MỘT)
 (third-digit->word 910)	;NIL
 (third-digit->word 914)	;(BỐN)
+<<<<<<< HEAD
 (third-digit->word 924)	;(TƯ)"
+=======
+(third-digit->word 924)	;(TƯ)"
+>>>>>>> alpha130114

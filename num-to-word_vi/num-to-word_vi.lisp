@@ -2,10 +2,7 @@
 "(num->text 1,034,567,890) -> 'một tỷ không trăm ...'"
 
 (defun num->word (num)
-       (append (groups-of-nine->word (num->groups-of-nine num))
-	       measure-unit))
-
-(setf measure-unit '(đơn vị)) ;replace đơn-vị with m2, m3, vnd, usd, ...
+       (groups-of-nine->word (num->groups-of-nine num)))
 
 ;Use function NUM->GROUPS-OF-NINE to separate NUM into numbers (each of them has at most 9 digits) (from the end of NUM). (num->groups-of-nine 1000234003) -> (1 234003)
 

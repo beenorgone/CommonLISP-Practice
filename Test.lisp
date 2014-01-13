@@ -94,7 +94,7 @@
 				     digit->word-table))))))
 
 (defun rest-groups-of-nine->word (nums)
-       (cond ((null nums) nil)
+       (cond ((equalp (length nums) 1) (group-of-nine->word (first nums)))
 	     ((zerop (first nums)) (append (rest-groups-of-nine->word (rest nums))
 					   '(tỷ)))
 	     (t (append (group-of-nine->word (first nums))

@@ -158,4 +158,5 @@
 				     digit->word-table))))))
 
 ;Test Cases
-(third-digit-word )
+(third-digit->word 3)	;(BA)
+(third-digit->word 11)	;(MỘT)

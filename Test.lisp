@@ -49,6 +49,9 @@
 	     (t (append (num->trios (floor num 1000))
 			(list (mod num 1000))))))
 
+(defun group-of-nine->word (num)
+       (trios->word (num->trios num)))
+
 ;Convert trios into words.
 ;Solution:
 ;- add unit (triệu, ngàn) for each trio except special cases.
@@ -126,9 +129,3 @@
 	     ((equalp (mod num 100) 5) '(năm))
 	     (t (list (fourth (assoc (mod num 10)
 				     digit->word-table))))))
-
-
-
-(defun group-of-nine->word (num)
-       (trios->word (num->trios num)))
-

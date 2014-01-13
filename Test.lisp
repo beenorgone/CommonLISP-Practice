@@ -9,3 +9,10 @@
 	     (t (append (num->groups-of-nine (floor num 1000000000))
 			(list (mod num 1000000000))))))
 
+"Test cases"
+(num->groups-of-nine 1000234003) ;(1 234003)
+
+(defun groups-of-nine->text (nums)
+       (if (equalp 1 (length nums))
+	   (trios->text (groups-of-nine->trios nums))
+	   ))

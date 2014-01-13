@@ -1,6 +1,8 @@
 "(defun num->text [num] ...)"
 "(num->text 1,034,567,890) -> 'một tỷ không trăm ...'"
 
+(use-package :lisp-unit)
+
 (defun num->word (num)
        (append (groups-of-nine->word (num->groups-of-nine num))
 	       measure-unit))
@@ -81,6 +83,11 @@
 
 (defun add-unit (a)
        (second (assoc a unit-table)))
+
+"Test cases"
+(add-unit 1)	;NIL
+(add-unit 2)	;
+(add-unit 6)	;nil
 
 (defun first-trio->word (num)
        (cond ((< num 10)

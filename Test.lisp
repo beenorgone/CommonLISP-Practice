@@ -14,7 +14,7 @@
 
 (defun groups-of-nine->word (nums)
        (if (equalp 1 (length nums))
-	   (trios->word (num->trios nums))
+	   (trios->word (num->trios (first nums)))
 	   (append (first-group-of-nine->word (first nums))
 		   '(tỷ)
 		   "(trios->word (groups-of-nine->trios (rest nums))"

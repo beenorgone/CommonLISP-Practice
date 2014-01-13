@@ -36,8 +36,8 @@
 
 (defun rest-groups-of-nine->word (nums)
        (cond ((equalp (length nums) 1) (group-of-nine->word (first nums)))
-	     ((zerop (first nums)) (append (rest-groups-of-nine->word (rest nums))
-					   '(tỷ)))
+	     ((zerop (first nums)) (append '(tỷ)
+					   (rest-groups-of-nine->word (rest nums))))
 	     (t (append (group-of-nine->word (first nums))
 			'(tỷ)
 			;add unit for each group except the last

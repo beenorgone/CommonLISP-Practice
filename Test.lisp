@@ -40,10 +40,10 @@
        (cond ((equalp (length nums) 1) (if (zerop (first nums))
 					   nil ;ignore if the last group is 0.
 					   (group-of-nine->word (first nums))))
-	     ((zerop (first nums)) (append '(tỷ) ;ignore if the last group is 0.
+	     ((zerop (first nums)) (append '(tỷ) ;add group's unit but ignore the group if it's zero.
 					   (rest-groups-of-nine->word (rest nums))))
 	     (t (append (group-of-nine->word (first nums))
-			'(tỷ) ;add unit for each group except the last.
+			'(tỷ) ;add unit for each group (except the last).
 			(rest-groups-of-nine->word (rest nums))))))
 
 ;Separate per group of nine into trios.

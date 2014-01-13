@@ -44,7 +44,7 @@ Noted:
 	(2 ngàn)
 	(1 nil)))
 
-(setf measure-unit 'đơn-vị) ;replace đơn-vị with m2, m3, vnd, usd, ...
+(setf measure-unit '(đơn-vị)) ;replace đơn-vị with m2, m3, vnd, usd, ...
 
 (defun add-unit (a)
        (second (assoc a units-table)))

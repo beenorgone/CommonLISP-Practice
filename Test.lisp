@@ -95,4 +95,7 @@
 				     digit->word-table))))))
 
 (defun rest-groups-of-nine->trios (nums)
-       )
+       (cond ((null nums) nil)
+	     ((zerop (first nums)) (rest-groups-of-nine->word (rest nums)))
+	     (t (append (group-of-nine->word (first nums))
+			(rest-groups-of-nine->word (rest nums))))))

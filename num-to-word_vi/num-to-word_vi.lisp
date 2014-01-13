@@ -14,7 +14,7 @@
 
 ;Use function NUM->GROUPS-OF-NINE to separate NUM into numbers (each of them has at most 9 digits) (from the end of NUM). (num->groups-of-nine 1000234003) -> (1 234003)
 
-"Test cases"
+;Test cases
 (num->groups-of-nine 1000234003) ;(1 234003)
 
 ;Write function GROUPS-OF-NINE->WORD to convert the groups of nine into words.
@@ -131,6 +131,8 @@
        (list (second (assoc (floor num 100)
 			    digit->word-table)) 'trăm))
 
+;Test Cases
+(first-digit-word 0)	; => 
 (defun second-digit->word (num)
        (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.
 	   nil

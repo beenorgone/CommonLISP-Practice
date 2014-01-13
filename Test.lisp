@@ -43,7 +43,7 @@
        (cond ((< num 10)
 	      (list (second (assoc num num->word-table))))
 	     ((< num 100) (append (second-digit->word num)
-				  (third-digit->word)))
+				  (third-digit->word num)))
 	     (t (trio->word num))))
 
 (defun rest-trios->word (nums)
@@ -56,7 +56,9 @@
 
 (defun trio->word (num)
        (cond ((zerop num) '(không))
-	     ))
+	     (t (append (first-digit->word num)
+			(second-digit->word num)
+			(third-digit->word num)))))
 
 (setf num->word-table
       '((0 không (linh)) ;linh v lẻ
@@ -69,6 +71,16 @@
 	(7 bảy (bảy mươi) bảy)
 	(8 tám (tám mươi) tám)
 	(9 chín (chín mươi) chín)))
+
+(defun first-digit->word (num)
+       (list (second (assoc (floor num 100)
+			    num->word-table)) 'trăm))
+
+(defun second-digit->word (num)
+       (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.
+	   nil
+	   (third (assoc (mod (floor num 10) 10)
+			 num->text-table))))
 
 (defun rest-groups-of-nine->trios (nums)
        )

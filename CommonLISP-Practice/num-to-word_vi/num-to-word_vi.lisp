@@ -2,7 +2,10 @@
 "(num->text 1,034,567,890) -> 'một tỷ không trăm ...'"
 
 (defun num->word (num)
-       (groups-of-nine->word (num->groups-of-nine num)))
+       (append (groups-of-nine->word (num->groups-of-nine num))
+	       measure-unit))
+
+(setf measure-unit '(đơn vị)) ;replace đơn-vị with m2, m3, vnd, usd, ...
 
 ;Use function NUM->GROUPS-OF-NINE to separate NUM into numbers (each of them has at most 9 digits) (from the end of NUM). (num->groups-of-nine 1000234003) -> (1 234003)
 
@@ -11,13 +14,8 @@
 	     (t (append (num->groups-of-nine (floor num 1000000000))
 			(list (mod num 1000000000))))))
 
-<<<<<<< HEAD
-;Test cases
-;(num->groups-of-nine 1000234003) ;(1 234003)
-=======
 ";Test cases
 (num->groups-of-nine 1000234003) ;(1 234003)"
->>>>>>> alpha130114
 
 ;Write function GROUPS-OF-NINE->WORD to convert the groups of nine into words.
 ;Solution:
@@ -84,14 +82,11 @@
 (defun add-unit (a)
        (second (assoc a unit-table)))
 
-<<<<<<< HEAD
-=======
 "Test cases
 (add-unit 1)	;NIL
 (add-unit 2)	;
 (add-unit 6)	;nil"
 
->>>>>>> alpha130114
 (defun first-trio->word (num)
        (cond ((< num 10)
 	      (list (second (assoc num digit->word-table))))
@@ -141,10 +136,10 @@
        (list (second (assoc (floor num 100)
 			    digit->word-table)) 'trăm))
 
-";Test Cases
+;Test Cases
 (first-digit->word 3)	;(KHÔNG TRĂM)
 (first-digit->word 23)	;(KHÔNG TRĂM)
-(first-digit->word 910)	;(CHÍN TRĂM)"
+(first-digit->word 910)	;(CHÍN TRĂM)
 
 (defun second-digit->word (num)
        (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.
@@ -172,8 +167,4 @@
 (third-digit->word 11)	;(MỘT)
 (third-digit->word 910)	;NIL
 (third-digit->word 914)	;(BỐN)
-<<<<<<< HEAD
 (third-digit->word 924)	;(TƯ)"
-=======
-(third-digit->word 924)	;(TƯ)"
->>>>>>> alpha130114

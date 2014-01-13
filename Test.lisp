@@ -35,7 +35,9 @@
 	     (t (group-of-nine->word num))))
 
 (defun rest-groups-of-nine->word (nums)
-       (cond ((equalp (length nums) 1) (group-of-nine->word (first nums)))
+       (cond ((equalp (length nums) 1) (if (zerop (first nums))
+					   nil
+					   (group-of-nine->word (first nums))))
 	     ((zerop (first nums)) (append '(tỷ)
 					   (rest-groups-of-nine->word (rest nums))))
 	     (t (append (group-of-nine->word (first nums))

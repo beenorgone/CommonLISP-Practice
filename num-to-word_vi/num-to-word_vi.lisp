@@ -132,7 +132,7 @@
 			    digit->word-table)) 'trăm))
 
 ;Test Cases
-(first-digit->word 0)	; => 
+(first-digit->word 0)
 
 (defun second-digit->word (num)
        (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.

@@ -83,6 +83,7 @@
 		  (null nums)
 		  (and (equalp (length nums) 2)
 		       (zerop (apply #'+ nums))))
+		  ;ignore (replace with nil) if the two last trios is 0.
 	      nil)
 	     (t (append (trio->word (first nums))
 			(list (add-unit (length nums)))

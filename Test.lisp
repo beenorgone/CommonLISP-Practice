@@ -47,9 +47,10 @@
 	     (t (trio->word num))))
 
 (defun rest-trios->word (nums)
-       (cond ((null nums) nil)
-	     ((and (equalp (length nums) 1)
-		   (zerop (first nums)))
+       (cond ((or (and (equalp (length nums) 1)
+		       (zerop (first nums)))
+		  (null nums)
+		  (and (equalp (length ))))
 	      nil)
 	     (t (append (trio->word (first nums))
 			(list (add-unit (length nums)))

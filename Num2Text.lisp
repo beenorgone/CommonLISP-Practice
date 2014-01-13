@@ -28,7 +28,8 @@ Noted:
 (defun groups-of-three->text (nums)
        (append (first-group-of-three->text (first nums))
 	       (list (add-unit (length nums)))
-	       (rest-groups-of-three->text (rest nums))))
+	       (rest-groups-of-three->text (rest nums))
+	       measure-unit))
 
 (defun rest-groups-of-three->text (nums)
        (cond ((zerop (length nums)) nil)
@@ -70,8 +71,7 @@ Noted:
        (cond ((< num 10) (list (second (assoc num
 					      num->text-table))))
 	     ((< num 100) (append (second-num->text num)
-				  (third-num->text num)
-				  measure-unit))
+				  (third-num->text num)))
 	     (t (group-of-three->text num))))
 
 (defun group-of-three->text (num)

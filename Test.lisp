@@ -102,3 +102,6 @@
 
 (defun group-of-nine->word (num)
        (trios->word (num->trios num)))
+
+(defun first-group-of-nine->word (num)
+       )

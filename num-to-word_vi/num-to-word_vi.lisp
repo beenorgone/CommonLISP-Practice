@@ -96,12 +96,10 @@
 
 (defun rest-trios->word (nums)
        (cond ((or (and (equalp (length nums) 2)
-		       (zerop (apply #'+ nums)))
+		       (zerop (apply #'+ nums))) ;ignore (replace with nil) if the two last trios are zero both.
 		  (and (equalp (length nums) 1)
-		       (zerop (first nums)))
-		  ;ignore (replace with nil) if the last trio is 0.
+		       (zerop (first nums))) ;ignore (replace with nil) if the last trio is 0.
 		  (null nums))
-		  ;ignore (replace with nil) if the two last trios is 0.
 	      nil)
 	     (t (append (trio->word (first nums))
 			(add-unit (length nums))

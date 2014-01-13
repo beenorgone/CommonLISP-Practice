@@ -94,7 +94,7 @@
 	     (t (list (fourth (assoc (mod num 10)
 				     digit->word-table))))))
 
-(defun rest-groups-of-nine->trios (nums)
+(defun rest-groups-of-nine->word (nums)
        (cond ((null nums) nil)
 	     ((zerop (first nums)) (rest-groups-of-nine->word (rest nums)))
 	     (t (append (group-of-nine->word (first nums))

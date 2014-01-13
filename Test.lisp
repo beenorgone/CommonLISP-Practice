@@ -8,3 +8,4 @@
        (cond ((zerop (floor num 1000000000)) (list num))
 	     (t (append (num->groups-of-nine (floor num 1000000000))
 			(list (mod num 1000000000))))))
+

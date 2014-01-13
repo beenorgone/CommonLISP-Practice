@@ -27,9 +27,11 @@
 			(list (mod num 1000))))))
 
 (defun trios->word (nums)
-       (append (first-trio->word (first nums))
-	       (list (add-unit (length nums)))
-	       (rest-trios->word (rest nums))))
+       (if (equalp 1 (length nums))
+	   (first-trio->word (first nums))
+	   (append (first-trio->word (first nums))
+		   (list (add-unit (length nums)))
+		   (rest-trios->word (rest nums)))))
 
 (setf unit-table
       '((3 triệu)

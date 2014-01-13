@@ -115,6 +115,13 @@
 			(second-digit->word num)
 			(third-digit->word num)))))
 
+;Test Cases
+(trio->word 3)		;(KHÔNG TRĂM LINH BA)
+(trio->word 11)		;(KHÔNG TRĂM MƯỜI MỘT)
+(trio->word 910)		;(CHÍN TRĂM MƯỜI)
+(trio->word 914)		;(CHÍN TRĂM MƯỜI BỐN)
+(trio->word 924)		;(CHÍN TRĂM HAI MƯƠI TƯ)
+
 (setf digit->word-table
       '((0 không (linh)) ;linh v lẻ
 	(1 một (mười) mốt)

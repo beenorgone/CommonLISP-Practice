@@ -42,7 +42,9 @@ Noted:
 	(4 tỷ)
 	(3 triệu)
 	(2 ngàn)
-	(1 đơn-vị))) ;replace 'đơn-vị' with any units of measure you want.
+	(1 nil)))
+
+(setf measure-unit 'đơn-vị) ;replace đơn-vị with m2, m3, vnd, usd, ...
 
 (defun add-unit (a)
        (second (assoc a units-table)))
@@ -75,7 +77,8 @@ Noted:
        (cond ((zerop num) nil) ;If a group of three is zero, ignore both the group and its unit.
 	      (t (append (first-num->text num)
 			 (second-num->text num)
-			 (third-num->text num)))))
+			 (third-num->text num)
+			 measure-unit))))
 
 (defun first-num->text (num)
        (list (second (assoc (floor num 100)

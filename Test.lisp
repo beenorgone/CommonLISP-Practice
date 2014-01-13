@@ -1,8 +1,8 @@
-(defun num->text (num)
-       (append (groups-of-nine->text (num->groups-of-nine num))
+(defun num->words (num)
+       (append (groups-of-nine->words (num->groups-of-nine num))
 	       measure-unit))
 
-(setf measure-unit '(đơn vị))
+(setf measure-unit '(đơn vị)) ;replace đơn-vị with m2, m3, vnd, usd, ...
 
 (defun num->groups-of-nine (num) ;(num->groups-of-nine 1000234003) -> (1 234003)
        (cond ((zerop (floor num 1000000000)) (list num))
@@ -12,7 +12,10 @@
 "Test cases"
 (num->groups-of-nine 1000234003) ;(1 234003)
 
-(defun groups-of-nine->text (nums)
+(defun groups-of-nine->words (nums)
        (if (equalp 1 (length nums))
-	   (trios->text (groups-of-nine->trios nums))
-	   ))
+	   (trios->words (groups-of-nine->trios nums))
+	   (append (first-group-of-nine->words (first nums))
+		   '(tỷ)
+		   (rest-groups-of-nine->words (rest nums)))))
+

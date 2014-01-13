@@ -104,4 +104,7 @@
        (trios->word (num->trios num)))
 
 (defun first-group-of-nine->word (num)
-       )
+       (cond ((< num 1000) (first-trio->word num))
+	     ((< num 1000000) (append (first-trio->word (floor num 1000))
+				      (trio->word (mod num 1000))))
+	     (t (group-of-nine->word num))))

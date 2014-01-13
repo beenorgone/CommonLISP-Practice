@@ -17,7 +17,6 @@
 	   (trios->word (num->trios (first nums)))
 	   (append (first-group-of-nine->word (first nums))
 		   '(tỷ)
-		   "(trios->word (groups-of-nine->trios (rest nums))"
 		   (rest-groups-of-nine->word (rest nums)))))
 
 (defun num->trios (num)

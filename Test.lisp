@@ -99,3 +99,6 @@
 	     ((zerop (first nums)) (rest-groups-of-nine->word (rest nums)))
 	     (t (append (group-of-nine->word (first nums))
 			(rest-groups-of-nine->word (rest nums))))))
+
+(defun group-of-nine->word (num)
+       (trios->word (num->trios num)))

@@ -11,13 +11,8 @@
 	     (t (append (num->groups-of-nine (floor num 1000000000))
 			(list (mod num 1000000000))))))
 
-<<<<<<< HEAD
-;Test cases
-;(num->groups-of-nine 1000234003) ;(1 234003)
-=======
 ";Test cases
 (num->groups-of-nine 1000234003) ;(1 234003)"
->>>>>>> alpha130114
 
 ;Write function GROUPS-OF-NINE->WORD to convert the groups of nine into words.
 ;Solution:
@@ -84,14 +79,11 @@
 (defun add-unit (a)
        (second (assoc a unit-table)))
 
-<<<<<<< HEAD
-=======
 "Test cases
 (add-unit 1)	;NIL
 (add-unit 2)	;
 (add-unit 6)	;nil"
 
->>>>>>> alpha130114
 (defun first-trio->word (num)
        (cond ((< num 10)
 	      (list (second (assoc num digit->word-table))))
@@ -174,6 +166,3 @@
 (third-digit->word 914)	;(BỐN)
 <<<<<<< HEAD
 (third-digit->word 924)	;(TƯ)"
-=======
-(third-digit->word 924)	;(TƯ)"
->>>>>>> alpha130114

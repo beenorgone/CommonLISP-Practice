@@ -42,6 +42,8 @@
 			;add unit for each group except the last
 			(rest-groups-of-nine->word (rest nums))))))
 
+;- Separate per group of nine into trios.
+
 (defun num->trios (num)
        (cond ((zerop (floor num 1000)) (list num))
 	     (t (append (num->trios (floor num 1000))

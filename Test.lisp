@@ -55,7 +55,7 @@
 (defun group-of-nine->word (num)
        (trios->word (num->trios num)))
 
-;Convert trios into words.
+;Convert trios into words with TRIOS->WORD function.
 ;Solution:
 ;- add unit (triệu, ngàn) for each trio except special cases.
 ;- Write functions FIRST-TRIO->WORD & REST-TRIOS->WORD to deal with special cases.
@@ -94,6 +94,8 @@
 	     (t (append (trio->word (first nums))
 			(list (add-unit (length nums)))
 			(rest-trios->word (rest nums))))))
+
+;Use TRIO-WORD to convert a trio into words.
 
 (defun trio->word (num)
        (cond ((zerop num) '(không))

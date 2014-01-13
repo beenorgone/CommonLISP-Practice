@@ -93,7 +93,7 @@
 		  (and (equalp (length nums) 1)
 		       (zerop (first nums)))
 		  ;ignore (replace with nil) if the last trio is 0.
-		  (null nums))
+		  ;(null nums))
 		  ;ignore (replace with nil) if the two last trios is 0.
 	      nil)
 	     (t (append (trio->word (first nums))

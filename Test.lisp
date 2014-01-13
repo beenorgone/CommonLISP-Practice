@@ -23,7 +23,7 @@
 
 (defun groups-of-nine->word (nums)
        (if (equalp 1 (length nums))
-	   (trios->word (num->trios (first nums)))
+	   (first-group-of-nine->word (first nums))
 	   (append (first-group-of-nine->word (first nums))
 		   '(tỷ) ;add unit for first group.
 		   (rest-groups-of-nine->word (rest nums)))))

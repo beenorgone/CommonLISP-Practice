@@ -19,7 +19,7 @@
 ;- add unit (tỷ) for each group except the last.
 ;- Write functions FIRST-GROUP-OF-NINE->WORD & REST-GROUPS-OF-NINE->WORD to deal with some special cases.
 ;- Separate per group of nine into trios.
-;- Write function GROUP-OF-NINE->WORD to convert a group of nine into words.
+;- Write function GROUP-OF-NINE->WORD to convert a group of nine into words. This function use two functions TRIOS->WORD & NUM->TRIOS.
 
 (defun groups-of-nine->word (nums)
        (if (equalp 1 (length nums))
@@ -50,7 +50,7 @@
 	     (t (append (num->trios (floor num 1000))
 			(list (mod num 1000))))))
 
-;Write function GROUP-OF-NINE->WORD to convert a group of nine into words.
+;Write function GROUP-OF-NINE->WORD to convert a group of nine into words. This function use two functions TRIOS->WORD & NUM->TRIOS.
 
 (defun group-of-nine->word (num)
        (trios->word (num->trios num)))

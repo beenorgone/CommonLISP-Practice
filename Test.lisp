@@ -1,3 +1,6 @@
+"(defun num->text [num] ...)"
+"(num->text 1,034,567,890) -> 'một tỷ không trăm ...'"
+
 (defun num->word (num)
        (append (groups-of-nine->word (num->groups-of-nine num))
 	       measure-unit))
@@ -35,13 +38,12 @@
 
 (defun rest-groups-of-nine->word (nums)
        (cond ((equalp (length nums) 1) (if (zerop (first nums))
-					   nil
+					   nil ;ignore if the last group is 0.
 					   (group-of-nine->word (first nums))))
-	     ((zerop (first nums)) (append '(tỷ)
+	     ((zerop (first nums)) (append '(tỷ) ;ignore if the last group is 0.
 					   (rest-groups-of-nine->word (rest nums))))
 	     (t (append (group-of-nine->word (first nums))
-			'(tỷ)
-			;add unit for each group except the last
+			'(tỷ) ;add unit for each group except the last.
 			(rest-groups-of-nine->word (rest nums))))))
 
 ;Separate per group of nine into trios.

@@ -59,7 +59,7 @@
 				   (trio->word num)))
 	     ((< num 1000000) (append '(không triệu)
 				      (trios->word (num->trios num))))
-	     (trios->word (num->trios num))))
+	     (t (trios->word (num->trios num)))))
 
 ;Convert trios into words with TRIOS->WORD function.
 ;Solution:

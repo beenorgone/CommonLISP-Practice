@@ -134,13 +134,18 @@
 ;Test Cases
 (first-digit->word 3)	;(KHÔNG TRĂM)
 (first-digit->word 23)	;(KHÔNG TRĂM)
-(first-digit->word 940)	;(CHÍN TRĂM)
+(first-digit->word 910)	;(CHÍN TRĂM)
 
 (defun second-digit->word (num)
        (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.
 	   nil
 	   (third (assoc (mod (floor num 10) 10)
 			 digit->word-table))))
+
+;Test Cases
+(second-digit->word 3)	;(LINH)
+(second-digit->word 23)	;(HAI MƯƠI)
+(second-digit->word 910)	;(MƯỜI)
 
 (defun third-digit->word (num)
        (cond ((zerop (mod num 10)) nil)

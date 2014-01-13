@@ -156,3 +156,6 @@
 	     ((equalp (mod num 100) 5) '(năm))
 	     (t (list (fourth (assoc (mod num 10)
 				     digit->word-table))))))
+
+;Test Cases
+(third-digit-word )

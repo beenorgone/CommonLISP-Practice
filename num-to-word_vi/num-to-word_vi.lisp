@@ -132,7 +132,9 @@
 			    digit->word-table)) 'trăm))
 
 ;Test Cases
-(first-digit->word 0)
+(first-digit->word 3)	;(KHÔNG TRĂM)
+(first-digit->word 23)	;(KHÔNG TRĂM)
+(first-digit->word 940)	;(CHÍN TRĂM)
 
 (defun second-digit->word (num)
        (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.

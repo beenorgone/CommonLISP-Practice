@@ -7,12 +7,12 @@
 
 (setf measure-unit '(đơn vị)) ;replace đơn-vị with m2, m3, vnd, usd, ...
 
+;Use function NUM->GROUPS-OF-NINE to separate NUM into numbers (each of them has at most 9 digits) (from the end of NUM). (num->groups-of-nine 1000234003) -> (1 234003)
+
 (defun num->groups-of-nine (num)
        (cond ((zerop (floor num 1000000000)) (list num))
 	     (t (append (num->groups-of-nine (floor num 1000000000))
 			(list (mod num 1000000000))))))
-
-;Use function NUM->GROUPS-OF-NINE to separate NUM into numbers (each of them has at most 9 digits) (from the end of NUM). (num->groups-of-nine 1000234003) -> (1 234003)
 
 ;Test cases
 (num->groups-of-nine 1000234003) ;(1 234003)

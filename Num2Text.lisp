@@ -70,7 +70,8 @@ Noted:
        (cond ((< num 10) (list (second (assoc num
 					      num->text-table))))
 	     ((< num 100) (append (second-num->text num)
-				  (third-num->text num)))
+				  (third-num->text num)
+				  measure-unit))
 	     (t (group-of-three->text num))))
 
 (defun group-of-three->text (num)
@@ -85,8 +86,8 @@ Noted:
 			    num->text-table)) 'trăm))
 
 "Test cases"
-(first-num->text 0)	;(KHÔNG TRĂM)
-(first-num->text 123)	;(MỘT TRĂM)
+(first-num->text 0)	;(KHÔNG TRĂM ĐƠN-VỊ)
+(first-num->text 123)	;(MỘT TRĂM ĐƠN-VỊ)
 
 (defun second-num->text (num)
        (if (zerop (mod num 100)) ;If the third & the second of the group are zero, ignore both.
